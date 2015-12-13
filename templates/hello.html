@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	{% load staticfiles %}
+	<script type="text/javascript" src="{% static 'angular.min.js' %}"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="appcol">
+		<h1>Hello {{name}}</h1>
+		<small>You are {% if num > 3 %}Chinese{% else%}Foreigner{% endif %}.</small><br>
+		{{dying}}.
+	    {% if dying %}Interpreted by Django.{% endif %}
+	    <br>
+		2.{% verbatim %}
+	    Interpreted by <span>{{okay}}</span>
+		{% endverbatim %}
+
+		<h2>Item List</h2>
+		<ul>
+			{% for i in item %}
+			<li>
+				<span>Name: {{ i.title }}</span><br>
+				<span>Amout: {{ i.amount }}</span><br>
+				<span>Description: {{ i.description }}</span>
+			</li>
+			{% endfor %}
+		</ul>
+		<p><a href="{% url 'bye' %}">bye</a></p>
+	</div>
+	<script type="text/javascript">
+		var app=angular.module("app",[]);
+		app.controller("appcol",function($scope){
+			$scope.okay="Angular"
+		})
+	</script>
+</body>
+</html>
