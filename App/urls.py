@@ -19,7 +19,11 @@ from Tell.views import *
 import settings
 
 urlpatterns = [
+    url(r'^$',index,name="index"),
+    url(r'^form/$',form,name="form"),
 	url(r'^hello/(?P<name>[a-z0-9_-]*)$',hello,name="hello"),
     url(r'^bye/$',bye,name="bye"),
+    url(r'^add/$',add,name="add"),
+    url(r'^jia/$',jia,name="jia"),
     url(r'^admin/', include(admin.site.urls)),
 ]
