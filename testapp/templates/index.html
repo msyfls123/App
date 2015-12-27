@@ -1,0 +1,18 @@
+{%load static%}
+{% load custom_markdown %}
+{% get_static_prefix as STATIC_PREFIX %}
+<link rel="stylesheet" href="{{STATIC_PREFIX}}css/default.min.css">
+<script src="{{STATIC_PREFIX}}js/highlight.min.js"></script>
+<link rel="stylesheet" href="{{STATIC_PREFIX}}css/monokai.css">
+<script>hljs.initHighlightingOnLoad();</script>
+<ul>
+	{%for i in dataList %}
+		<li>
+			<p>Name:{{i.name}}</p>
+			<p>Data:{{i.data|custom_markdown}}</p>
+			<p>{{i.content|safe}}</p>
+			<p><img src="{{i.img.url}}" height="200"></p>
+		</li>
+
+	{% endfor %}
+</ul>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>{{user.username}}</h1>
+	<p>Ip:{{ip_address}}</p>
+	<h3>权限列表</h3>
+	<ul>
+		{% for per in user.get_all_permissions%}
+			<li>{{per}}</li>
+		{% endfor %}
+	</ul>
+	<p><b>是否有增加用户的权限: </b>{{perms.auth.add_user}}</p>
+	<p><b>更改用户的权限呢?</b>
+		{% if message %}
+			有啊
+		{% else %}
+			也木有啊
+		{% endif %}
+	</p>
+	Welcome, <a target="_self" href="/logout/">logout</a>
+</body>
+</html>
