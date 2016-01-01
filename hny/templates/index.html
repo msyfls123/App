@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block passwd %}
+{% if curYear > 2015 %}
+<span class="col-sm-offset-1 text-info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 密码是 <code>mary&max</code></span>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+{% if messages %}
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible" {% endif %} role="alert">
+    	 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+<style type="text/css">
+	@media (min-width: 768px){
+	.clearlr{padding-left: 0;padding-right: 0;}}
+	@media (max-width: 768px){
+	.btn-sub{width: 100%;margin-top: 15px;}
+	.clearlr{padding-top: 5px;}}
+	
+</style>
+
+				<form class="form-horizontal" action="/guess/" method="POST" onSubmit="return CheckForm();">
+					{% csrf_token %}
+				  <div class="form-group">
+				    <label for="choice1" class="col-sm-2 control-label">答案壹</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="choice1" name="choice1" placeholder="请输入你的第一个答案, 比如'仙剑'?">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="choice2" class="col-sm-2 control-label">答案贰</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="choice2" name="choice2" placeholder="请输入你的第二个答案, 比如'西游'?">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="choice3" class="col-sm-2 control-label">答案叁</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="choice3" name="choice3" placeholder="请输入你的第三个答案, 比如'还珠'?">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="alipay" class="col-sm-2 control-label">支付宝</label>
+				    <div class="col-sm-4">
+				      <input type="text" class="form-control" id="alipay" name="alipay" placeholder="支付宝账号" required>
+				    </div>
+				    <label for="checkname" class="col-sm-1 control-label clearlr">校验名</label>
+				    <div class="col-sm-3">
+				      <input type="text" class="form-control" id="checkname" name="checkname" placeholder="校验名" required>
+				    </div>
+
+					<div class="col-sm-1">
+				      <input type="submit" class="btn btn-primary btn-sub" value="提交"></input>
+				    </div>
+
+				  </div>				  
+				</form>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">规则</div>
+				 	<div class="panel-body">
+				   		<ol>
+				   			<li>每个支付宝账号限参加一次, 以<code data-toggle="tooltip" data-placement="top" title="就是支付宝转账时显示的*某某">校验名</code>校核, 你要乱填就自动放弃</li>
+				   			<li>2016年1月1日零点准时开奖，会公布压缩包密码和中奖序列</li>
+				   			<li>正确答案有2个，每个正确答案取前三名答对者进行红包奖励，奖励30元/人/个</li>
+				   			<li>如一人提交的答案同时包含两个答案,则该人可得红包100元,与前项同占名额</li>
+				   			<li>关于<a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="来打我啊" data-content="没有提示，哇哈哈哈" data-placement="top">答案提示</a></li>
+				   		</ol>
+				   		<div class="row">
+				   			<div class="col-xs-3 col-xs-offset-6 col-sm-2 col-sm-offset-7">
+						   		{% if curYear > 2015 %}
+						   		<a href="{% url 'final' %}"><button type="button" class="btn btn-danger">查看结果</button></a>
+						   		{% endif %}
+					   		</div>
+					   		<div class="col-xs-3 col-sm-2">
+					   			<a href="{% url 'serach' %}"><button type="button" class="btn btn-default">验证提交</button></a>
+					   		</div>
+					   	</div>
+				  	</div>
+				</div>
+
+<script type="text/javascript">
+	function CheckForm()
+		{
+		  if(confirm("确认要提交答案吗?")==true)
+		    return true;
+		  else
+		    return false;
+		} 
+	window.onload=function(){
+		$("#choice1").focus();
+	}
+</script>
+
+{% endblock %}

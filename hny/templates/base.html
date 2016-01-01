@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>老马欢迎你</title>
+	{% load static %}
+	{% get_static_prefix as STATIC_PREFIX %}
+	<link rel="shortcut icon" href="{{STATIC_PREFIX}}css/favicon.ico" type="image/x-icon">
+	<script src="{{STATIC_PREFIX}}js/jquery.min.js"></script>
+	<script src="{{STATIC_PREFIX}}js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{{STATIC_PREFIX}}css/bootstrap.min.css">
+	<style type="text/css">
+		a:hover{text-decoration: none;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3" style="margin-top:10px;">
+				<div class="page-header">
+				  <h1><a href="{% url 'index' %}">老马最喜爱的古装电视剧竞猜</a></h1>
+				  <a target="_blank" href="http://pan.baidu.com/s/1qWZRu8G"><button class="btn btn-default btn-sm text-muted">含有答案的压缩包</button></a>{% block passwd %}{% endblock %}
+				</div>
+
+				{% block content %}
+				{% endblock %}
+				
+			</div>
+		</div>
+	</div>		
+	<script type="text/javascript">
+		$('[data-toggle=tooltip]').tooltip();
+		$('[data-toggle=popover]').popover();
+	</script>
+</body>
+</html>

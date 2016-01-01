@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if curYear < 2016 %}
+	<div class="alert alert-success" role="alert">
+	<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+	凑不要脸的，找到了也不给你看结果
+</div>
+{% endif %}
+
+{% if curYear > 2015 %}
+<div class="alert alert-warning" role="alert">
+	<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+	答案是<a href="http://movie.douban.com/subject/1830590/">康熙王朝</a>和<a href="http://movie.douban.com/subject/2239292/">大宋提刑官</a>
+	</div>
+<table class="table table-bordered table-hover table-responsive">
+  <tr><th>ID号</th><th>答案壹</th><th>答案贰</th><th>答案叁</th><th>支付宝</th></tr>
+	{% for data in dataList%}
+		<tr>
+			<td>{{data.id}}</td>
+
+			<td class="{% if data.Choice1 in answers %}bg-success{% endif %}">{{data.Choice1}}</td>
+			<td class="{% if data.Choice2 in answers %}bg-success{% endif %}">{{data.Choice2}}</td>
+			<td class="{% if data.Choice3 in answers %}bg-success{% endif %}">{{data.Choice3}}</td>
+			<td>{{data.Alipay}}</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endif %}
+
+
+{% endblock %}

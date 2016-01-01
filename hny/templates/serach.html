@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<form class="form-inline" action="/result/" method="GET">
+	{% csrf_token %}
+    <div class="form-group">
+    	<label for="alipay" class="control-label">支付宝账号</label>
+	    <input type="text" class="form-control" id="alipay" name="alipay" placeholder="请输入您的支付宝账号进行查询" style="width:250px" required>
+  	</div>
+	<div class="form-group">
+	      <input id="serach" class="btn btn-primary" value="提交查询" readonly></input>
+	</div>
+</form>
+<div class="row" style="margin-top:20px;">
+	<table class="table table-responsive" id="result" style="display:none">
+	  <tr><th>ID号</th><th>答案壹</th><th>答案贰</th><th>答案叁</th><th>支付宝</th><th>校验名</th></tr>
+	  <tr><td id="c1"></td><td id="c2"></td><td id="c3"></td><td id="c4"></td><td id="c5"></td><td id="c6"></td></tr>
+	</table>
+
+	<div class="alert alert-danger" role="alert" id="alert" style="display:none">
+	    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 没有找到记录，请确认输入无误或重新提交答案
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	      $("#serach").click(function(){
+	        var alipay = $("#alipay").val();
+
+	        $.getJSON("/result/",{'alipay':alipay}, function(data){
+	        	if(data.id){
+	        		$("#alert").hide();
+		            $('#c1').text(data.id);
+		            $('#c2').html(data.Choice1);
+		            $('#c3').html(data.Choice2);
+		            $('#c4').html(data.Choice3);
+		            $('#c5').html(data.Alipay);
+		            $('#c6').html(data.CheckName);
+		            $("#result").show();
+	        	}else{
+	        		$("#result").hide();
+	        		$("#alert").show();
+	        	}
+	        })
+	      });
+	    });
+</script>
+
+
+{% endblock %}

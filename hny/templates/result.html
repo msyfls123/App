@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="alert alert-success" role="alert">
+	<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+	感谢您的参与，开奖结果将于2016年1月1日零点公布。
+</div>
+<table class="table table-responsive">
+  <tr><th>ID号</th><th>答案壹</th><th>答案贰</th><th>答案叁</th><th>支付宝</th><th>校验名</th></tr>
+  <tr><td>{{pollid}}</td><td>{{choice1}}</td><td>{{choice2}}</td><td>{{choice3}}</td><td>{{alipay}}</td><td>{{checkname}}</td></tr>
+</table>
+
+{% endblock %}
