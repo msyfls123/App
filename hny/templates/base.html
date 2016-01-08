@@ -20,7 +20,23 @@
 			<div class="col-md-6 col-md-offset-3" style="margin-top:10px;">
 				<div class="page-header">
 				  <h1><a href="{% url 'index' %}">老马最喜爱的古装电视剧竞猜</a></h1>
-				  <a target="_blank" href="http://pan.baidu.com/s/1qWZRu8G"><button class="btn btn-default btn-sm text-muted">含有答案的压缩包</button></a>{% block passwd %}{% endblock %}
+				  
+				  <div class="btn-group">
+				  <button type="button" class="btn btn-default btn-sm"><a target="_blank" href="http://pan.baidu.com/s/1qWZRu8G">含有答案的压缩包</a></button>
+				  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    <span class="caret"></span>
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li class="text-center text-muted small">
+				  		{% block passwd %}
+				  			<span class="glyphicon glyphicon-time" aria-hidden="true"></span> 还没开奖哦
+				  		{% endblock %}
+					</li>
+				  </ul>
+				</div>
+
+				  
 				</div>
 
 				{% block content %}

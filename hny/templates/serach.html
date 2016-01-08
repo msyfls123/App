@@ -1,6 +1,10 @@
 {% extends "base.html" %}
-{% block content %}
 
+{% block passwd %}
+去往主页查看结果吧
+{% endblock %}
+
+{% block content %}
 
 <form class="form-inline" action="/result/" method="GET">
 	{% csrf_token %}

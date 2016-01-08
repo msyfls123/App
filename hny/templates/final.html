@@ -1,4 +1,13 @@
 {% extends "base.html" %}
+
+{% block passwd %}
+{% if curYear > 2015 %}
+密码是 <kbd>mary&amp;max</kbd>
+{% else %}
+<span class="glyphicon glyphicon-time" aria-hidden="true"></span> 还没开奖哦
+{% endif %}
+{% endblock %}
+
 {% block content %}
 
 {% if curYear < 2016 %}
@@ -14,7 +23,7 @@
 	答案是<a href="http://movie.douban.com/subject/1830590/">康熙王朝</a>和<a href="http://movie.douban.com/subject/2239292/">大宋提刑官</a>
 	</div>
 <table class="table table-bordered table-hover table-responsive">
-  <tr><th>ID号</th><th>答案壹</th><th>答案贰</th><th>答案叁</th><th>支付宝</th></tr>
+  <tr class="active"><th>ID号</th><th>答案壹</th><th>答案贰</th><th>答案叁</th><th>支付宝</th></tr>
 	{% for data in dataList%}
 		<tr>
 			<td>{{data.id}}</td>

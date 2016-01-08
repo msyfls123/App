@@ -2,7 +2,9 @@
 
 {% block passwd %}
 {% if curYear > 2015 %}
-<span class="col-sm-offset-1 text-info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 密码是 <code>mary&max</code></span>
+密码是 <kbd>mary&amp;max</kbd>
+{% else %}
+<span class="glyphicon glyphicon-time" aria-hidden="true"></span> 还没开奖哦
 {% endif %}
 {% endblock %}
 
