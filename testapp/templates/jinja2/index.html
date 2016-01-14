@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="{{static}}css/default.min.css">
+	<script src="{{static}}js/highlight.min.js"></script>
+	<link rel="stylesheet" href="{{static}}css/monokai.css">
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	
+	<ul>
+		{%for i in dataList %}
+			<li>
+				<p>Name:{{i.name}}</p>
+				<p>Data:{{i.data}}</p>
+				<p>{{i.content|safe}}</p>
+				<p><img src="{{i.img.url}}" height="200"></p>
+			</li>
+
+		{% endfor %}
+	</ul>
+	<a href="{{ url('profile')}}">Home</a>
+</body>
+</html>

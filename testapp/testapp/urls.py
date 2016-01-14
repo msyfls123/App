@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from app.views import *
 from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
 	url(r'^$',IndexView.as_view(),name="index"),
     url(r'^profile/$', profile, name='profile'),
@@ -25,6 +26,9 @@ urlpatterns = [
     url(r'^logout/$',logout_view,name="logout"),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^uploadimg/',upload_image), 
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^notes/',notes,name="notes"),
+    url(r'^getnotes/',getnotes,name="getnotes"),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', { 'document_root': settings.MEDIA_ROOT,}), #开发,部署时可以去掉
 ]

@@ -51,8 +51,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'testapp.urls'
@@ -68,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.i18n',
             ],
         },
     },
@@ -94,7 +99,12 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'zh-hans'
+LANGUAGE_CODE = 'en'
+LANGUAGES = (
+  ('zh-CN', ('简体中文')),
+  ('zh-Hans', ('简体中文too')),
+  ('en', ('English')),
+)
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -104,6 +114,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -139,3 +152,20 @@ CKEDITOR_CONFIGS = {
         ),
     }
 }
+
+EMAIL_HOST = 'smtp.qq.com'
+# EMAIL_HOST_USER = '745784917@qq.com'
+# EMAIL_HOST_PASSWORD = 'msyfls789abc'
+EMAIL_PORT = 25
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'E:/Desktop/Cache',
+        'TIMEOUT': 3600,
+    }
+}
+
+# CACHE_MIDDLEWARE_ALIAS = "default"
+# CACHE_MIDDLEWARE_SECONDS = 300
+# CACHE_MIDDLEWARE_KEY_PREFIX = '139.129.133.18'

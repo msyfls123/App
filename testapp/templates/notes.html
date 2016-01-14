@@ -1,0 +1,22 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<script src="{{STATIC_PREFIX}}js/jquery.min.js"></script>
+
+Hello Notes.
+<ul id='notes'></ul>
+
+<script type="text/javascript">
+	function showUnreadNews()
+    {
+	  $.getJSON("/getnotes/",function(result){
+	  	$("#notes").empty();
+	  	$.each(result, function(i, field){
+        	newli = document.createElement("li");
+        	newli.innerHTML = 'Name: '+field.tip +'Time: '+ field.time
+        	$("#notes").append($(newli))
+	  	})
+	  })
+    }
+    showUnreadNews()
+    setInterval('showUnreadNews()',5000);
+</script>

@@ -1,0 +1,6 @@
+Django==1.8.4
+django-ckeditor==5.0.2
+django-pagedown==0.1.1
+markdown2==2.3.0
+MySQL-python==1.2.5
+Pillow==2.4.0
