@@ -1,28 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../action/actions';
+import {addTodo,completeTodo,setVisibilityFilter,VisibilityFilters} from '../action/actions';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import Footer from './Footer';
 
+const Actions = {
+  addTodo,
+  completeTodo,
+  setVisibilityFilter
+}
+
 class App extends Component {
   render() {
-    const { dispatch, visibleTodos, visibilityFilter } = this.props
+    const { addTodo, completeTodo, setVisibilityFilter, visibleTodos, visibilityFilter } = this.props
     return (
     <div>
       <AddTodo
         onAddClick={text =>
-          dispatch(addTodo(text))
+          addTodo(text)
         } />
       <TodoList
         todos={this.props.visibleTodos}
         onTodoClick={index =>
-        dispatch(completeTodo(index))
+        completeTodo(index)
         } />
       <Footer
         filter={visibilityFilter}
           onFilterChange={nextFilter =>
-            dispatch(setVisibilityFilter(nextFilter))
+            setVisibilityFilter(nextFilter)
           } />
     </div>
     );
@@ -60,5 +66,6 @@ function select(state) {
     visibilityFilter: state.visibilityFilter
   };
 }
+
 // 包装 component ，注⼊ dispatch 和 state 到其默认的 connect(select)(App) 中；
-export default connect(select)(App);
+export default connect(select, Actions)(App);
