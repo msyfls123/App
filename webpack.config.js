@@ -9,7 +9,7 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 module.exports = {
   entry: {
     main: path.resolve(APP_PATH,'main.js'),
-    vendors:["react","react-dom"]
+    vendors:["react","react-dom","react-router"]
   },
   output: {
     path: BUILD_PATH,
@@ -55,5 +55,6 @@ module.exports = {
     historyApiFallback: true,
     hot: false,
     inline: true,
-  }
+  },
+  devtool: false
 };

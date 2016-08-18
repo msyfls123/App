@@ -7,15 +7,24 @@ import { store } from "./store/store.js"
 import { addTodo,completeTodo,setVisibilityFilter,VisibilityFilters} from "./action/actions"
 import React from 'react'
 import { render } from 'react-dom'
+import { Router, Route, hashHistory, Link } from 'react-router';
 import { Provider } from 'react-redux'
 import App from "./components/App"
+import View from "./components/View"
+import About from "./components/About"
+import Repos from "./components/Repos"
 
-console.log(Provider)
 
 let rootElement = document.getElementById('root')
 render(
   <Provider store={store}>
-    <App />
+  <Router history={hashHistory}>
+   <Route component={View}>
+    <Route path="/" component={App}/>
+    <Route path="/repos(/:name)" component={Repos}/>
+    <Route path="/about" component={About}/>
+    </Route>
+  </Router>
   </Provider>,
   rootElement
 )
