@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 var http = require('http');
+var fs = require('fs');
+var path = require('path');
+var optionsRead = { encoding: 'utf8', flag: 'r' };
 var options = {
     hostname: 'playark.com.cn',
     path: '/summercupfinal/dist/js/rank.json',
@@ -24,6 +27,12 @@ function handleResponse(response) {
 http.request(options, function(response){
   handleResponse(response);
 }).end();
+
+app.use('/dist',express.static(path.join(__dirname, 'dist')));
+
+app.get('/',function(req,res){
+  fs.createReadStream("./index.html",  options).pipe(res);
+})
 
 app.get('/api/rank.json',function(req,res){
   res.setHeader('Content-Type','application/json;charset=UTF-8')
