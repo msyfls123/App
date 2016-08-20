@@ -5,7 +5,11 @@ import { store } from "../store/store.js"
 import configureStore from '../store/configureStore'
 import AsyncApp from './AsyncApp'
 
-const storeReddit = configureStore()
+const initialState2 = {
+  selectedSubreddit:"reactjs"
+}
+
+const storeReddit = configureStore(initialState2)
 
 class Root extends Component {
   render() {

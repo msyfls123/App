@@ -38,7 +38,7 @@ render () {
   <p>
   {lastUpdated &&
   <span>
-  Last updated at {new Date(lastUpdated).toLocaleTimeString}
+  Last updated at {new Date(lastUpdated).toLocaleTimeString()}
   {' '}
   </span>
   }
