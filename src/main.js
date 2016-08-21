@@ -16,7 +16,7 @@ fetch(`/api/rank.json`)
 
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, browserHistory, Link } from 'react-router';
+import { Router, Route, hashHistory, Link } from 'react-router';
 import { Root, Reddit } from "./components/Root"
 import View from "./components/View"
 import About from "./components/About"
@@ -25,7 +25,7 @@ import Repos from "./components/Repos"
 
 let rootElement = document.getElementById('root')
 render(
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
    <Route component={View}>
     <Route path="/" component={Root}/>
     <Route path="/repos(/:name)" component={Repos}/>

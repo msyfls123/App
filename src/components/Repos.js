@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import { Router, Route, browserHistory, Link, IndexLink } from 'react-router';
+import { Router, Route, hashHistory, Link, IndexLink } from 'react-router';
 
 export default class Repos extends Component{
   onClick(e) {
-    browserHistory.push('/')
+    hashHistory.push('/')
   }
 
   render() {
