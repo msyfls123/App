@@ -15,13 +15,15 @@ main =
 
 type alias Model = 
   { day : String
-  , data : String}
+  , url : String
+  , movie : String
+  }
 
 -- MODEL
 
 init : String -> (Model, Cmd Msg)
 init day = 
-  ( Model day ""
+  ( Model day "" ""
   , getData day)
 
 -- UPDATE
@@ -29,7 +31,7 @@ init day =
 type Msg
   = Change String
   | Load
-  | Data (Result Http.Error String)
+  | Data (Result Http.Error MetaData)
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
@@ -39,7 +41,7 @@ update msg model =
     Load ->
       (model, getData model.day)
     Data (Ok resData) ->
-      ({ model | data = resData }, Cmd.none)
+      ({ model | url = resData.url, movie = resData.movie }, Cmd.none)
     Data (Err _) ->
       (model, Cmd.none)
 
@@ -51,7 +53,8 @@ view model =
     [ h2 [] [text ("Choose " ++ model.day)]
     , input [placeholder "Day", onInput Change] []
     , button [onClick Load] [text "Load"]
-    , p [] [text model.data]
+    , p [] [text model.movie]
+    , img [src model.url] []
     ]
 
 -- SUBSCRIPTIONS
@@ -62,6 +65,11 @@ subscriptions model =
 
 -- HTTP
 
+type alias MetaData =
+  { url : String
+  , movie : String
+  }
+
 getData : String -> Cmd Msg
 getData day = 
   let
@@ -69,6 +77,8 @@ getData day =
   in
     Http.send Data (Http.get url decodeData)
 
-decodeData : Decode.Decoder String
+decodeData : Decode.Decoder MetaData
 decodeData =
-  Decode.at ["url"] Decode.string
+  Decode.map2 MetaData
+    (Decode.field "pic" Decode.string)
+    (Decode.field "suggestion" Decode.string)
