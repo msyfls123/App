@@ -1,0 +1,18 @@
+
+<div id="port"></div>
+<button onClick="reset()">Reset</button>
+
+<script src="port.js"></script>
+<script>
+    var node = document.getElementById('port')
+    var app = Elm.Test.embed(node);
+
+    app.ports.log.subscribe(function(data) {
+      console.log(data)
+    })
+
+    function reset() {
+      app.ports.reset.send(0)
+    }
+
+</script>
