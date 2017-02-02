@@ -6,3 +6,9 @@
 + Scrapy 爬虫  
 + HLS/RTMP 流媒体  
 + GraphQL/Relay 图数据
+
+# 想做
++ Pocket 的卡片池  
++ 信息记录站（图文链接）  
++ VR Live  
++ Data Visualization
