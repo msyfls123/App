@@ -10,19 +10,25 @@
     <div id='app'>
     </div>
     <a-scene>
+      <!--
       <a-assets>
         <video id="mp4" autoplay loop="true" src="/api/test.mp4">
       </a-assets>
       <a-videosphere src="#mp4" ></a-videosphere>
-      <a-box src="img/logo.jpg" position="0 3 -5" rotation="0 45 45" scale="2 2 2">
-        <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000"
-      repeat="indefinite"></a-animation>
-      </a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" width="1" height="1" depth="1" color="#4CC3D9"></a-box>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky> -->
+      -->
+      <a-entity id="box" cursor="fuse:true;fuseTimeout:1000" geometry="primitive: box" material="color: blue">
+        <a-box src="img/logo.jpg" position="0 3 -5" rotation="45 0 45" scale="2 2 2" id="box1">
+          <a-animation attribute="position" begin="focus" to="0 2.2 -5" direction="normal" dur="2000">
+          </a-animation>
+        </a-box>
+      </a-entity>
+
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
     </a-scene>
   </body>
 </html>
