@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script src="//cdn.bootcss.com/aframe/0.4.0/aframe.min.js"></script>
+    <script src="model/aframe-extras.loaders.min.js"></script>
   </head>
   <body>
     <div id='app'>
     </div>
-    <a-scene>
+    <a-scene stats>
       <!--
       <a-assets>
         <video id="mp4" autoplay loop="true" src="/api/test.mp4">
@@ -23,11 +24,36 @@
         </a-box>
       </a-entity>
 
-      <a-camera>
+      <a-camera fov='80' far='100'>
         <a-cursor></a-cursor>
       </a-camera>
 
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-assets>
+        <a-asset-item id="monu1" src="model/monu1.ply"></a-asset-item>
+      </a-assets>
+      <a-entity ply-model="src: #monu1" position='0 0 -5' rotation="-90 0 0" scale='.03 .03 .03'
+                     dur="10000"
+                     fill="forwards"
+                     to="0 360 0"
+                     repeat="indefinite">
+        <a-animation attribute="rotation"
+                     dur="10000"
+                     fill="forwards"
+                     to="0 360 0"
+                     repeat="indefinite">
+        </a-animation>
+      </a-entity>
+      <a-octahedron color="#FF926B" radius="5" position='0 -3 -6' scale='.5 .5 .5' >
+        <a-animation attribute="rotation"
+                     dur="10000"
+                     fill="forwards"
+                     to="0 360 0"
+                     repeat="indefinite">
+        </a-animation>
+      </a-octahedron>
+
+
+      <a-plane position="0 0 -8" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
   </body>

@@ -4,6 +4,7 @@ var path = require('path'),
     HtmlwebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
     CleanPlugin = require('clean-webpack-plugin'),
+    CopyPlugin = require('copy-webpack-plugin'),
     cssExtractor = new ExtractTextPlugin("css/lib.[contenthash:9].css"),
     stylExtractor = new ExtractTextPlugin("css/main.[contenthash:9].css")
 
@@ -60,6 +61,11 @@ module.exports = {
       verbose: true,
       dry: true
     }),
+    new CopyPlugin([{
+      from: path.join(APP_PATH, 'model'),
+      to: 'model',
+      ignore: ['**/.DS_Store']
+    }]),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: false,
       mangle: false,
