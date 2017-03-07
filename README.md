@@ -10,6 +10,8 @@
 
 # 想做
 + Pocket 的卡片池  
-+ 信息记录站（图文链接）  
++ GitHub 的 Web Hooks  
++ WebSocket 语音聊天室  
++ 信息记录站（图文链接）  
 + VR Live  
-+ Data Visualization
++ D3 Map App
