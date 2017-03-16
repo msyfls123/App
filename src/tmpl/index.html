@@ -10,27 +10,26 @@
   <body>
     <div id='app'>
     </div>
-    <a-scene stats>
-      <!--
+    <a-scene>
       <a-assets>
-        <video id="mp4" autoplay loop="true" src="/api/test.mp4">
+        <a-asset-item id="monu1" src="model/monu1.ply"></a-asset-item>
+        <a-asset-item id="testdae" src="model/test.dae"></a-asset-item>
+        <img id="bg" src="model/bg.jpg"></img>
       </a-assets>
-      <a-videosphere src="#mp4" ></a-videosphere>
-      -->
-      <a-entity id="box" cursor="fuse:true;fuseTimeout:1000" geometry="primitive: box" material="color: blue">
-        <a-box src="img/logo.jpg" position="0 3 -5" rotation="45 0 45" scale="2 2 2" id="box1">
-          <a-animation attribute="position" begin="focus" to="0 2.2 -5" direction="normal" dur="2000">
+      <a-entity geometry='primitive: sphere; radius: 100' material='shader: flat; src:#bg' scale='1 1 -.9'></a-entity>
+      <a-entity id="box" cursor="fuse:true;fuseTimeout:1000" >
+        <a-box src="img/logo.jpg" position="0 3 -5" rotation="45 0 45" scale=".75 .75 .75" id="box1">
+          <a-animation attribute="position" begin="focus" to="0 5 -5" direction="normal" dur="2000">
           </a-animation>
         </a-box>
       </a-entity>
 
-      <a-camera fov='80' far='100'>
-        <a-cursor></a-cursor>
-      </a-camera>
+      <a-entity postion="0 0 0" id="camera" cursor-rotation>
+        <a-camera fov='80' far='100'>
+          <a-cursor></a-cursor>
+        </a-camera>
+      </a-entity>
 
-      <a-assets>
-        <a-asset-item id="monu1" src="model/monu1.ply"></a-asset-item>
-      </a-assets>
       <a-entity ply-model="src: #monu1" position='0 0 -5' rotation="-90 0 0" scale='.03 .03 .03'
                      dur="10000"
                      fill="forwards"
@@ -39,22 +38,20 @@
         <a-animation attribute="rotation"
                      dur="10000"
                      fill="forwards"
-                     to="0 360 0"
+                     to="-90 360 0"
                      repeat="indefinite">
         </a-animation>
       </a-entity>
-      <a-octahedron color="#FF926B" radius="5" position='0 -3 -6' scale='.5 .5 .5' >
+
+     <a-entity collada-model='#testdae' position='2 0 -5' scale='.5 .5 .5' rotation='0 -90 0'>
         <a-animation attribute="rotation"
                      dur="10000"
                      fill="forwards"
-                     to="0 360 0"
+                     to="0 270 0"
                      repeat="indefinite">
         </a-animation>
-      </a-octahedron>
-
-
-      <a-plane position="0 0 -8" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+     </a-entity>
+ 
     </a-scene>
   </body>
 </html>

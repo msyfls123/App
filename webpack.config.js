@@ -26,7 +26,7 @@ module.exports = {
   module:{
     loaders:[
       {test:/\.(js|jsx)$/, loader:'babel-loader', exclude:/node_modules/, query:{
-        presets: ['es2015','react', 'stage-0'],
+        presets: ['es2015', 'stage-0'],
         plugins: ['transform-runtime']
       }},
       {test:/\.styl$/, loader: stylExtractor.extract({
@@ -89,12 +89,6 @@ module.exports = {
     historyApiFallback: true,
     hot: false,
     inline: true,
-    proxy:{
-      '/api/*':{
-        target: 'http://139.129.133.18',
-        secure: false
-      }
-    }
   },
   devtool: false
 }
