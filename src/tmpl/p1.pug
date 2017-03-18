@@ -1,0 +1,63 @@
+extend layout.pug
+
+block content
+  a-scene
+    a-assets
+      img#bg(src='model/bk.jpg')
+      img#back(src='model/res/a-04.png')
+      img#home(src='model/res/a-05.png')
+      img#search(src='model/res/a-06.png')
+      img#pay(src='model/res/a-01.png')
+      img#yes(src='model/res/a-02.png')
+      img#no(src='model/res/a-03.png')
+    a-entity(
+             geometry='primitive: sphere; radius: 150'
+             material='shader: flat; src: #bg'
+             scale='1 1 -1'
+             rotation='0 180 0'
+            )
+    a-entity#camera(position='0 0 0', cursor-rotation)
+      a-camera(fov='90', far='150')
+        a-cursor
+    a-image(
+            src='#back'
+            position='-1.2 -.7 -3'
+            rotation='-20 0 0'
+            width='.5'
+            height='.5'
+           )
+    a-image(
+            src='#home'
+            position='0 -.7 -3'
+            rotation='-20 0 0'
+            width='.5'
+            height='.5'
+           )
+    a-image(
+            src='#search'
+            position='1.2 -.7 -3'
+            rotation='-20 0 0'
+            width='.5'
+            height='.5'
+           )
+    a-image(
+            src='#pay'
+            position='0 2 -4'
+            rotation='0 0 0'
+            width='4.65'
+            height='5.49'
+           )
+    a-image(
+            src='#yes'
+            position='4 3 -3'
+            rotation='0 -15 0'
+            width='.8'
+            height='.8'
+           )
+    a-image(
+            src='#no'
+            position='4 2 -3'
+            rotation='0 -15 0'
+            width='.8'
+            height='.8'
+           )

@@ -1,0 +1,63 @@
+extend layout.pug
+
+block content
+  a-scene
+    a-assets
+      img#bg(src='model/bk.jpg')
+      img#back(src='model/res/a-04.png')
+      img#home(src='model/res/a-05.png')
+      img#search(src='model/res/a-06.png')
+      img#l(src='model/res/a-13.png')
+      img#c(src='model/res/a-15.png')
+      img#r(src='model/res/a-14.png')
+    a-entity(
+             geometry='primitive: sphere; radius: 150'
+             material='shader: flat; src: #bg'
+             scale='1 1 -1'
+             rotation='15 180 0'
+            )
+    a-entity#camera(position='0 0 0', cursor-rotation)
+      a-camera(fov='90', far='150')
+        a-cursor
+    a-image(
+            src='#back'
+            position='-1.2 -.7 -3'
+            rotation='-20 0 0'
+            width='.5'
+            height='.5'
+           )
+    a-image(
+            src='#home'
+            position='0 -.7 -3'
+            rotation='-20 0 0'
+            width='.5'
+            height='.5'
+           )
+    a-image(
+            src='#search'
+            position='1.2 -.7 -3'
+            rotation='-20 0 0'
+            width='.5'
+            height='.5'
+           )
+    a-image(
+            src='#l'
+            position='-5 2 -4.2'
+            rotation='5 15 0'
+            width='4.0'
+            height='6.05'
+           )
+    a-image(
+            src='#c'
+            position='0 2 -4.2'
+            rotation='5 0 0'
+            width='3.5'
+            height='5.3'
+           )
+    a-image(
+            src='#r'
+            position='5 2 -4.2'
+            rotation='5 -15 0'
+            width='4.0'
+            height='6.05'
+           )

@@ -101,6 +101,27 @@ module.exports = {
       chunks: ['main'],
       inject: 'body'
     }),
+    new HtmlwebpackPlugin({
+      title: 'webpack demo',
+      template: path.resolve(TMPL_PATH, 'p1.pug'),
+      filename: 'p1.html',
+      chunks: [],
+      inject: 'body'
+    }),
+    new HtmlwebpackPlugin({
+      title: 'webpack demo',
+      template: path.resolve(TMPL_PATH, 'p2.pug'),
+      filename: 'p2.html',
+      chunks: [],
+      inject: 'body'
+    }),
+    new HtmlwebpackPlugin({
+      title: 'webpack demo',
+      template: path.resolve(TMPL_PATH, 'p3.pug'),
+      filename: 'p3.html',
+      chunks: [],
+      inject: 'body'
+    }),
     cssExtractor,
     stylExtractor,
     new webpack.HotModuleReplacementPlugin()
