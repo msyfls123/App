@@ -122,6 +122,13 @@ module.exports = {
       chunks: [],
       inject: 'body'
     }),
+    new HtmlwebpackPlugin({
+      title: 'webpack demo',
+      template: path.resolve(TMPL_PATH, 'p4.pug'),
+      filename: 'p4.html',
+      chunks: [],
+      inject: 'body'
+    }),
     cssExtractor,
     stylExtractor,
     new webpack.HotModuleReplacementPlugin()
