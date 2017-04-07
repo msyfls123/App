@@ -7,6 +7,7 @@
 + HLS/RTMP 流媒体  
 + GraphQL/Relay 图数据  
 + [Svelte](https://github.com/sveltejs/svelte) 消失的框架
++ [Rust](https://www.rust-lang.org/) 程序设计语言  
 
 # 想做
 + Pocket 的卡片池  
