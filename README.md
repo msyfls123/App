@@ -8,11 +8,13 @@
 + GraphQL/Relay 图数据  
 + [Svelte](https://github.com/sveltejs/svelte) 消失的框架
 + [Rust](https://www.rust-lang.org/) 程序设计语言  
++ Android
 
 # 想做
 + Pocket 的卡片池  
 + GitHub 的 Web Hooks  
 + WebSocket 语音聊天室  
 + 信息记录站（图文链接）  
-+ VR Live  
-+ D3 Map App
++ <del> VR Live </del>  
++ D3.js Map
++ Web PDF Reader(PDF page to Canvas)
