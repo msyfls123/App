@@ -1,0 +1,77 @@
+extend layout.pug
+
+block content
+  a-scene
+    a-assets
+      img#bg(src='model/bk.jpg')
+      img#back(src='model/res/a-04.png')
+      img#home(src='model/res/a-05.png')
+      img#search(src='model/res/a-06.png')
+      img#go(src='model/res/a-07.png')
+      img#return(src='model/res/a-10.png')
+      img#pay(src='model/res/a-11.png')
+      img#star(src='model/res/a-12.png')
+      img#s1(src='model/res/scenery1.jpg')
+      img#s2(src='model/res/scenery2.jpg')
+      img#s3(src='model/res/scenery3.jpg')
+      img#exit(src='model/res/exit.png')
+      a-asset-item#room(src='model/room2.dae')
+    a-entity#camera(position='0 0 0', cursor-rotation)
+      a-camera(fov='100', far='150')
+        a-cursor
+    a-image(
+            src='#back'
+            position='-.3 .7 -1'
+            rotation='-20 0 0'
+            width='.2'
+            height='.2'
+           )
+    a-image(
+            src='#home'
+            position='0 .7 -1'
+            rotation='-20 0 0'
+            width='.2'
+            height='.2'
+           )
+    a-image(
+            src='#search'
+            position='.3 .7 -1'
+            rotation='-20 0 0'
+            width='.2'
+            height='.2'
+           )
+    a-image(
+            src='#exit'
+            position='0 10 0'
+            rotation='90 0 0'
+            width='18'
+            height='18'
+           )
+
+    a-collada-model(
+                 src='#room'
+                 position='0 0 120'
+                 rotation='0 -90 0'
+                 scale='1 1 1'
+                )
+    a-image(
+            src='#go'
+            position='-1 1 -1'
+            rotation='0 25 0'
+            width='.25'
+            height='.37'
+           )
+    a-image(
+            src='#star'
+            position='1.5 1.2 -2'
+            rotation='0 -25 0'
+            width='.25'
+            height='.37'
+           )
+    a-image(
+            src='#return'
+            position='2 1 -1'
+            rotation='0 -15 0'
+            width='.25'
+            height='.37'
+           )

@@ -3,3 +3,5 @@ elm-stuff/
 log/
 elm-package.json
 *.js
+dist/
+.DS_Store
