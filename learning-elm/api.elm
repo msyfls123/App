@@ -73,7 +73,7 @@ type alias MetaData =
 getData : String -> Cmd Msg
 getData day = 
   let
-    url = "https://masy.site/calendar/api2/" ++ day
+    url = "https://day.ebichu.cc/calendar/api2/" ++ day
   in
     Http.send Data (Http.get url decodeData)
 
