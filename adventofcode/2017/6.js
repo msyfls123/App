@@ -29,8 +29,11 @@ function resolve() {
     tmpList = switchNumber(tmpList)
     count += 1
   }
-  console.log(count)
-  return count
+  const firstMet = store.findIndex((l) => campareArr(l, tmpList))
+  // last fount tmpList has not been added to store
+  const metDiff = store.length - firstMet
+  console.log(count, metDiff)
+  return [count, metDiff]
 }
 
 module.exports = { resolve }
