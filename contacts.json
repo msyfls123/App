@@ -3,6 +3,7 @@
 // ).map(([url, name]) => `["${url}", "${name}"],`).join('\n')
 {
   "list": [
+    ["https://www.douban.com/people/3397464/", "她長長睡會✞"],
     ["https://www.douban.com/people/Lan-sisi-2014/", "兰思思"],
     ["https://www.douban.com/people/122646801/", "我想静静"],
     ["https://www.douban.com/people/jessicazt/", "Summer"],
@@ -84,9 +85,8 @@
     ["https://www.douban.com/people/68511400/", "rainsoup_"],
     ["https://www.douban.com/people/121775528/", "八颗"],
     ["https://www.douban.com/people/meowcat_fairy/", "幻泡"],
-    ["https://www.douban.com/people/missmiss/", "波西米亚人"],
     ["https://www.douban.com/people/149001430/", "Moli"],
-    ["https://www.douban.com/people/110698227/", "赛特"],
+    ["https://www.douban.com/people/110698227/", "焦虑的赛特"],
     ["https://www.douban.com/people/4581134/", "Ginsa"],
     ["https://www.douban.com/people/49083243/", "加入养生界"],
     ["https://www.douban.com/people/41949035/", "樱花·舞"],
