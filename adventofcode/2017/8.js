@@ -3,7 +3,9 @@
 const fs = require('fs')
 const path = require('path')
 
-const registers = {}
+const registers = {
+  highest_value: undefined
+}
 
 function compare(a, comparator, b) {
   switch (comparator) {
@@ -32,6 +34,7 @@ function process(reg, [key, op, num, _if, keyA, comparator, valueB]) {
   )
   if (compareResult) {
     reg[key] = (+reg[key] || 0) + (op === 'inc' ? +num : -num)
+    reg.highest_value = Math.max(reg.highest_value || reg[key], reg[key])
   }
   return reg
 }
@@ -45,7 +48,8 @@ function resolve() {
   const input = fs.readFileSync(path.resolve(__dirname, '8.txt'), { encoding: 'utf-8'})
   const intructions = parseLines(input)
   const afterRegisters = intructions.reduce(process, registers)
-  return Math.max(...Object.values(afterRegisters))
+  const { highest_value, ...rest } = afterRegisters
+  return [Math.max(...Object.values(rest)), highest_value]
 }
 console.log(resolve())
 
